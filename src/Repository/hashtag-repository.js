@@ -1,11 +1,11 @@
-const hashtag  = require('../models/hashtag.js');
+import Hashtag from '../models/hashtag.js'
 
 class HashtagRepository {
 
     async create(data){
 
         try {
-            const tweet = await hashtag.create(data);
+            const tweet = await Hashtag.create(data);
             return tweet;
         } catch (error) {
             console.log(error);
@@ -15,7 +15,7 @@ class HashtagRepository {
     async bulkcreate(data){
 
         try {
-            const tags = await hashtag.insertMany(data);
+            const tags = await Hashtag.insertMany(data);
             return tags;
         } catch (error) {
             console.log(error);
@@ -24,7 +24,7 @@ class HashtagRepository {
 
     async findByName(tittleList){
         try {
-            const tags = await hashtag.find({
+            const tags = await Hashtag.find({
                 title : tittleList
             })
             return tags;
@@ -37,7 +37,7 @@ class HashtagRepository {
     async update(tweetId,data){
 
         try {
-            const tweet = await Tweet.findByIdAndUpdate(tweetId,data,{new:true});
+            const tweet = await Hashtag.findByIdAndUpdate(tweetId,data,{new:true});
             return tweet;
         } catch (error) {
             console.log(error);
@@ -47,7 +47,7 @@ class HashtagRepository {
     async get(id){
 
         try {
-            const tweet = await Tweet.findById(id);
+            const tweet = await Hashtag.findById(id);
             return tweet;
         } catch (error) {
             console.log(error);
@@ -57,7 +57,7 @@ class HashtagRepository {
     async destroy(id){
 
         try {
-            const tweet = await Tweet.findByIdAndRemove(id);
+            const tweet = await Hashtag.findByIdAndRemove(id);
             return tweet;
         } catch (error) {
             console.log(error);
@@ -65,4 +65,4 @@ class HashtagRepository {
     }
 }
 
-module.exports = HashtagRepository;
+export default HashtagRepository;
