@@ -11,6 +11,6 @@ app.listen(3000,async()=>{
     console.log('mongo server connected');
     const ser = new TweetService();
     await ser.create({
-     content : "Done with #refactor #new with lowercase"
+     content : "Done with #refactor #new with lowercase #more"
     })
 })
