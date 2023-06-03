@@ -53,5 +53,16 @@ const likeSchema = new mongoose.Schema({
     }
 
 },{timestamps : true});
-
 ```
+* Now, we know a user can like something and if he want he can dislike the tweet he liked already so, lets start working on that .
+```js
+User : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required : true
+    }
+```
+
+>NOTE : when we update something if you wanna show the updated value try to add the field -  
+`const result = await this.model.findByIdAndUpdate(id, data, {new: true});`
+
