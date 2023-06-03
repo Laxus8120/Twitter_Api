@@ -28,3 +28,30 @@ tweets:[
     ]
 ```
 * From hastag we will able to get all the tweets.
+
+# Like and comments working 
+
+## how can we prepare a like model using which you can like on a comment and tweet also.
+
+### Creating a new LIke model
+
+? In which model we are going to like for e.x are we gonna like on a comment or tweet ?
+* SO, we can keep a property `onModel`.
+
+* Try to learn the ref path documentation in moongose.
+```js
+const likeSchema = new mongoose.Schema({
+    onModel : {
+        type : String,
+        required : true,
+        enum : ['Tweet','Comment']
+    },
+    likeable : {
+        type: mongoose.Schema.Types.ObjectId,
+        required :true,
+        refPath : 'onModel'
+    }
+
+},{timestamps : true});
+
+```
