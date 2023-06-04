@@ -10,7 +10,9 @@ class TweetRepository extends CrudRepository{
     async create(data){
 
         try {
+            console.log(data)
             const tweet = await Tweet.create(data);
+            console.log(tweet)
             return tweet;
         } catch (error) {
             console.log(error);
@@ -30,6 +32,15 @@ class TweetRepository extends CrudRepository{
     async getWithComments(id){
         try {
             const tweet = await Tweet.findById(id).populate({path:'comments'}).lean();
+            return tweet;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async find(id){
+        try {
+            const tweet = await Tweet.findById(id).populate({path: 'likes'});
             return tweet;
         } catch (error) {
             console.log(error);
