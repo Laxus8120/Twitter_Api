@@ -16,7 +16,7 @@ class LikeService {
         } else {
             throw new Error('unknown model type');
         }
-        var exists = await this.likeRepository.findByUserAndLikeable({
+        const exists = await this.likeRepository.findByUserAndLikeable({
             User: userId,
             onModel: modelType,
             likeable: modelId
@@ -25,7 +25,7 @@ class LikeService {
         if(exists) {
             likeable.likes.pull(exists.id);
             await likeable.save();
-            await exists.remove();
+            await exists.deleteOne()
             var isAdded = false;
 
         } else {

@@ -63,6 +63,11 @@ User : {
     }
 ```
 
->NOTE : when we update something if you wanna show the updated value try to add the field -  
-`const result = await this.model.findByIdAndUpdate(id, data, {new: true});`
+>NOTE : when we update something if you wanna show the new updated document  value try to add the field -  
+`const result = await this.model.findByIdAndUpdate(id, data, {new: true});` // {new:true} is must.
+
+* Working on toggleLike function which let like or unlike the comment or tweet we already liked.
+
+
+//Note- By using the `populate` method, you can efficiently retrieve related data from other collections in MongoDB, avoiding the need for separate queries and enhancing the functionality and readability of your code.
 
