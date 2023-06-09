@@ -71,3 +71,32 @@ User : {
 
 //Note- By using the `populate` method, you can efficiently retrieve related data from other collections in MongoDB, avoiding the need for separate queries and enhancing the functionality and readability of your code.
 
+# Adding Comment Model 
+
+```js
+User : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required : true
+    },
+    onModel : {
+        type : String,
+        required : true,
+        enum : ['Tweet','Comment']
+    },
+    commentable: {
+        type: mongoose.Schema.Types.ObjectId,
+        required :true,
+        refPath : 'onModel'
+    }
+```
+* adding some new fields which tells the user , or the comment made on a tweet or on a comment .
+```js
+likes : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref: 'Like'
+        }
+    ]
+```
+* Adding this filed which store how many like a commnet has so that we dont have quey the like model we can count from commnet model only.
