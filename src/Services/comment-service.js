@@ -23,7 +23,7 @@ class CommentService {
             commentable: modelId,
             comments: []
         })
-        commentable.Comments.push(comment);
+        commentable.comments.push(comment);
         await commentable.save();
 
         return comment;
