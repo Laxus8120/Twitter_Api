@@ -100,3 +100,6 @@ likes : [
     ]
 ```
 * Adding this filed which store how many like a commnet has so that we dont have quey the like model we can count from commnet model only.
+
+## Adding passport AUth
+
