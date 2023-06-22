@@ -10,7 +10,6 @@ class TweetService {
     async create(data){
         const content = data.content;        
         const tags = content.match(/#[a-zA-Z0-9_]+/g).map((tag) => tag.substring(1).toLowerCase());
-        console.log(content);
         const tweet = await this.tweetRepository.create(data);
         let alreadyPresentTags = await this.hashRepository.findByName(tags);
         let titileOfPresentTag = alreadyPresentTags.map(tags => tags.title);

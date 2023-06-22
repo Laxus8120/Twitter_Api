@@ -103,3 +103,5 @@ likes : [
 
 ## Adding passport AUth
 
+1. npm i passport-jwt
+2. 
