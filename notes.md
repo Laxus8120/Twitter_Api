@@ -120,17 +120,18 @@ today doubts
 1. whta is schema.method ?
 
 
-## working on Aws S3
+# working on Aws S3
 
 * how we can handle this aws s3 inside our nodejs, express API, so we already have a bunch of packages.
 * the first package we explore is AWS-SDK is npm package which has all the code which is require to connect to amazon web services     directly. so, what ever services we wanna use we configure it.
 * second package is multer - multer is a nodejs middlware which primarly used for uploading file.
 * the third one is multer-s3 - this is sub package for multer which focus on s3-service only.
 
-### Setting up S3 
+## Setting up S3 
 
 - there is a concept of bucket, so we are gonna create a new bucket.
     * name your bucket, and most of field recommanded.
+    * `object ownership` - ACLs enabled
     * `block public Access field` - by deffault it is enable which not let others to access the bucket, so in this field we gonna enable this field.
     * that's all we need to setup this one :(), most of filed we let default.
     * we can also manualy upload something on s3.
@@ -138,7 +139,7 @@ today doubts
 - Now, we have our basic bucket ready with us now we need some aws keys, access and everything.
     * go to security credential, in order to access S3 we need access keys so we gonna create one --> go to `create access key`--> save those 2 keys somewhere safe that we are gonna use it later.
 
-### Setting up the project now,
+## Setting up the project now,
 
 * creating a new configuration for file upload, 
     - import multer and multerS3, awsS3.
